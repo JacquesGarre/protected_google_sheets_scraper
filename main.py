@@ -4,6 +4,7 @@ import sys
 import os
 import csv
 
+PROTECTED_SHEETS_URL = "https://docs.google.com/spreadsheets/d/10QtMPw3Cs-rGl0K2P5ct1u9NM1rT7ySdnd59jhAHyzw"
 START_AT_ROW = 3
 CSV_NAME = "export.csv"
 
@@ -28,8 +29,7 @@ def scrap_that_very_protected_google_sheets(url):
         f.writerow([csv_row])
 
 
-protected_doc_url = "https://docs.google.com/spreadsheets/d/10QtMPw3Cs-rGl0K2P5ct1u9NM1rT7ySdnd59jhAHyzw"
-scrap_that_very_protected_google_sheets(protected_doc_url)
+scrap_that_very_protected_google_sheets(PROTECTED_SHEETS_URL)
 
 
                                                                   
