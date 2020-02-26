@@ -1,5 +1,4 @@
 # protected_google_sheets_scraper
-How to hack google sheets security with a python script (much wow, much skillz #darkweb)
 
 ## Utilisation
 
