@@ -19,7 +19,7 @@ def scrap_that_very_protected_google_sheets(url):
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     csv_file = os.path.join(dir_path, CSV_NAME)
-    f = csv.writer(open(csv_file, "w", encoding="utf-8", newline=''))
+    f = csv.writer(open(csv_file, "wt", encoding="utf-8", newline=''), quoting=csv.QUOTE_NONE, escapechar='\\')
     rows =  soup.find_all('tr')[START_AT_ROW:]
     for row in rows:
         cells = row.find_all('td')
@@ -27,7 +27,6 @@ def scrap_that_very_protected_google_sheets(url):
         for cell in cells:
             csv_row += cell.get_text() + ';'
         f.writerow([csv_row])
-
 
 scrap_that_very_protected_google_sheets(PROTECTED_SHEETS_URL)
 
@@ -41,5 +40,3 @@ scrap_that_very_protected_google_sheets(PROTECTED_SHEETS_URL)
 # 88       88 ,adPPPPP88 8b         8888[    8PP""""""" 88          
 # 88       88 88,    ,88 "8a,   ,aa 88`"Yba, "8b,   ,aa 88          
 # 88       88 `"8bbdP"Y8  `"Ybbd8"' 88   `Y8a `"Ybbd8"' 88                  lmao.       
-                                                                  
-                                                                  
