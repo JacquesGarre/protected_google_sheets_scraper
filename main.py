@@ -4,6 +4,8 @@ import sys
 import os
 import csv
 
+START_AT_ROW = 3
+CSV_NAME = "export.csv"
 
 def scrap_that_very_protected_google_sheets(url):
 
@@ -15,9 +17,9 @@ def scrap_that_very_protected_google_sheets(url):
         e.replace_with(' ')
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    csv_file = os.path.join(dir_path, 'export.csv')
+    csv_file = os.path.join(dir_path, CSV_NAME)
     f = csv.writer(open(csv_file, "w", encoding="utf-8", newline=''))
-    rows =  soup.find_all('tr')[3:]
+    rows =  soup.find_all('tr')[START_AT_ROW:]
     for row in rows:
         cells = row.find_all('td')
         csv_row = ''
